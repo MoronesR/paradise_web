@@ -1,8 +1,4 @@
-
-
-
-
-function grafica(elem,titulo, data) {
+function graficaBarra(elem,titulo, data) {
     //titulo
     graficaBarras.addTitle(elem,titulo);
     // linea y 
@@ -32,8 +28,8 @@ function grafica(elem,titulo, data) {
     
     let max = 0;
     data.forEach(x => {
-        if(x.res > max){
-            max = x.res;
+        if(x.valores > max){
+            max = x.valores;
         }
     });
 
@@ -82,7 +78,7 @@ function grafica(elem,titulo, data) {
     let columnWidth = 70 / data.length,
         xValue = 15;
     data.forEach(data => {
-        var barHeight = (data.res * lines/10);
+        var barHeight = (data.valores * lines/10);
         var y = 500 - (barHeight);
         graficaBarras.addRectange(elem, {
             start : {
@@ -98,7 +94,7 @@ function grafica(elem,titulo, data) {
 
         // title
         graficaBarras.addText(elem, {
-            text : data.lugNombre,
+            text : data.nombres,
             start : {
                 x : (xValue + (columnWidth / 2)) + '%',
                 y : '520px'

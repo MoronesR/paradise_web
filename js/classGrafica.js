@@ -11,6 +11,15 @@ class graficaBarras{
         let t = document.createElementNS('http://www.w3.org/2000/svg', 'text'); 
         this.draw(elem,options,t);
     };
+    static addPath(elem,options){
+        let p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        this.draw(elem,options,p);
+    };
+
+    static addCircle(elem,options){
+        let c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        this.draw(elem,options,c);
+    };
     static addTitle(elem,titulo) {
         if (titulo !== '') {
            let options = {
@@ -39,6 +48,7 @@ class graficaBarras{
             }
             //en caso qeu contenga una clase el arry
             if (typeof op.class !== 'undefined') elemChild.setAttribute('class', op.class);
+            
             if (typeof op.start !== 'undefined') {
                 if (typeof op.start.x !== 'undefined' && typeof op.start.y !== 'undefined'){
                     if(elemChild.tagName !== 'line'){
@@ -63,7 +73,8 @@ class graficaBarras{
             }
 
             if (typeof op.id !== 'undefined') elemChild.id = op.id;
-            
+
+
             //agregamos al elemento padre
             if (typeof elem !== 'undefined') {
                 if (elem != null){ 
